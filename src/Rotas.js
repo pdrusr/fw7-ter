@@ -1,23 +1,39 @@
 import express from "express"
-import { usuario } from "./database/Modelos.js"
+import { postagem } from "./database/Modelos.js"
 
 const Rotas = express.Router()
 
-Rotas.get("/", function(requisicao, resposta) {
+Rotas.get("/", async function(requisicao, resposta) {
+    resposta.render("inicio.pug")
+})
 
-    const novousuario = new usuario({
-        nomeusuario: "pdrusr",
-        nomecompleto: "Pedro Augusto dos Santos",
-        email: "pdrusr@gmail.com",
-        senha: "123456",
-        data_nasc: new Date("2000-11-08"),
-        ativo: true
+Rotas.get("/postagem/:codigo", async function(requisicao, resposta) {
+    resposta.render("postagem.pug")
+})
+
+Rotas.get("/postar", async function(requisicao, resposta) {
+    resposta.render("postar.pug")
+})
+
+Rotas.post("/postar", async function(requisicao, resposta) {
+
+    const corpo = requisicao.body
+
+    console.log(corpo)
+
+    const novapostagem = new postagem({
+        descricao: corpo.descricao,
+        conteudo: corpo.conteudo,
+        nomeusuario: corpo.nomeusuario,
+        data_post: corpo.data_post,
+        ativo: corpo.ativo == "on" ? true : false 
     })
 
-    novousuario.save()
+    const resultado = await novapostagem.save()
 
-    resposta.render("inicio.pug")
+    console.log(resultado)
 
+    resposta.redirect("/")
 })
 
 Rotas.get("*", function(requisicao, resposta) {
