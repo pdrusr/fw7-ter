@@ -1,1 +1,14 @@
-h1 Estou na página inicio
+each postagem in resultados
+
+    - var opcao = { year: "numeric", month: "long", day: "numeric", weekday: "long" }
+    - var data = new Date(postagem.data_post).toLocaleString("pt-BR", opcao)
+
+    div(class="postagem")
+
+        div(class="postagem-nomeusuario") #{ postagem.nomeusuario }
+
+        div(class="postagem-descricao") #{ postagem.descricao }
+
+        img(src=postagem.conteudo, alt="foto do conteudo")
+
+        div(class="postagem-data") #{ data }
