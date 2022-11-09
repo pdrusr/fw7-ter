@@ -1,14 +1,17 @@
-each postagem in resultados
+html(lang="pt-BR")
+    head
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Final
+        link(rel="stylesheet", href="/style.css")
+    body 
+        each postagem in resultados
 
-    - var opcao = { year: "numeric", month: "long", day: "numeric", weekday: "long" }
-    - var data = new Date(postagem.data_post).toLocaleString("pt-BR", opcao)
+            - var opcao = { year: "numeric", month: "long", day: "numeric", weekday: "long" }
+            - var data = new Date(postagem.data_post).toLocaleString("pt-BR", opcao)
 
-    div(class="postagem")
-
-        div(class="postagem-nomeusuario") #{ postagem.nomeusuario }
-
-        div(class="postagem-descricao") #{ postagem.descricao }
-
-        img(src=postagem.conteudo, alt="foto do conteudo")
-
-        div(class="postagem-data") #{ data }
+            div(class="postagem")
+                div(class="postagem-nomeusuario") #{ postagem.nomeusuario }
+                div(class="postagem-descricao") #{ postagem.descricao }
+                img(src=postagem.conteudo, alt="foto do conteudo")
+                div(class="postagem-data") #{ data }

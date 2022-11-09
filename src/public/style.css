@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: "Roboto", "Segoe UI", sans-serif;
+    font-size: 14pt;
+}
+
+body {
+    background: #eee;
+    color: #222;
+    margin: 0 auto;
+    width: 600px;
+}
+
+div.postagem {
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 8px rgba(80, 80, 80, 0.2);
+    margin: 32px 0;
+}
+
+div.postagem-nomeusuario {
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 16px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+div.postagem-descricao {
+    font-size: 12pt;
+    text-align: justify;
+    padding: 16px;
+}
+
+div.postagem img {
+    width: 100%;
+    max-height: 450px;
+}
+
+div.postagem-data {
+    color: #555;
+    font-size: 12pt;
+    padding: 12px;
+    text-align: center;
+}
