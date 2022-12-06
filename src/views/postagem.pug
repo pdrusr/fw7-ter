@@ -1,18 +1,19 @@
-if resultado
-
-    - var opcao = { year: "numeric", month: "long", day: "numeric", weekday: "long" }
-    - var data = new Date(resultado.data_post).toLocaleString("pt-BR", opcao)
-
-    div(class="postagem")
-
-        div(class="postagem-nomeusuario") #{ resultado.nomeusuario }
-
-        div(class="postagem-descricao") #{ resultado.descricao }
-
-        img(src=resultado.conteudo, alt="foto do conteudo")
-
-        div(class="postagem-data") #{ data }
-
-else 
-
-    h1 Postagem não encontrada!
+html(lang="pt-BR")
+    head
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Final | Postagem
+        link(rel="stylesheet", href="/style.css")
+        link(rel="shortcut icon", href="/favicon.png", type="image/png")
+    body 
+        if Object.keys(resultado || {}).length > 0
+            - var opcao = { year: "numeric", month: "long", day: "numeric", weekday: "long" }
+            - var data = new Date(resultado.data_post).toLocaleString("pt-BR", opcao)
+            div(class="postagem")
+                div(class="postagem-nomeusuario") #{ resultado.nomeusuario }
+                div(class="postagem-descricao") #{ resultado.descricao }
+                img(src=resultado.conteudo, alt="foto do conteudo")
+                div(class="postagem-data") #{ data }
+        else 
+            div(class="postagem")
+                div(class="postagem-nomeusuario") Postagem não encontrada!

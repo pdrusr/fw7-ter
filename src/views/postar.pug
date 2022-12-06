@@ -1,17 +1,15 @@
-form(action="/postar", method="POST") 
-
-    fieldset 
-        
-        legend Formulário Postar 
-
-        input(type="text", name="descricao", placeholder="Descricao", maxlength="256", required)
-    
-        input(type="url", name="conteudo", placeholder="Conteudo", required)
-
-        input(type="text", name="nomeusuario", placeholder="Nome de usuário", maxlength="16", required)
-
-        input(type="date", name="data_post", required)
-
-        input(type="checkbox", name="ativo", checked)
-
-        input(type="submit", value="Postar!")
+html(lang="pt-BR")
+    head
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Final | Postar
+        link(rel="stylesheet", href="/style.css")
+        link(rel="shortcut icon", href="/favicon.png", type="image/png")
+    body
+        form(action="/postar", method="POST") 
+            input(type="text", name="descricao", placeholder="Descricao", maxlength="256", required)
+            input(type="url", name="conteudo", placeholder="Conteudo", required)
+            input(type="text", name="nomeusuario", placeholder="Nome de usuário", maxlength="16", required)
+            input(type="date", name="data_post", required)
+            input(type="checkbox", name="ativo", checked)
+            input(type="submit", value="Postar!")
